@@ -1,0 +1,15 @@
+﻿
+<h2>Edit School</h2>
+
+<form method="post">
+    <input type="text" name="SchoolName" value="@Model.School.SchoolName" /><br />
+    <input type="text" name="Address1" value="@Model.School.Address1" /><br />
+    <input type="text" name="Address2" value="@Model.School.Address2" /><br />
+    <input type="text" name="City" value="@Model.School.City" /><br />
+    <input type="text" name="State" value="@Model.School.State" /><br />
+    <input type="text" name="Zip" value="@Model.School.Zip" /><br />
+    <input type="text" name="Website" value="@Model.School.Website" /><br />
+    <input style="visibility:hidden" type="number" name="SchoolId" value="@Model.School.SchoolId" />
+
+    <button type="submit">Submit</button>
+</form>

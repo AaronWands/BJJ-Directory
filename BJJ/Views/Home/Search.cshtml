@@ -1,0 +1,39 @@
+﻿@model BJJ.Models.ViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="buffer"></div>
+        <table class="table">
+            <tr></tr>
+            @foreach (var school in Model.Schools)
+            {
+                <tr>
+                    <td>@school.SchoolName</td>
+                    <td>
+                        <ul>
+                            <li>@school.Address1</li>
+                            <li>@school.Address2</li>
+                            <li>@school.City, @school.State, @school.Zip</li>
+                            <li><a href="@school.Website" target="_blank">@school.Website</a></li>
+                        </ul>
+                    </td>
+                    @*<td>
+                        <form role="form" method="get" action="/Home/EditSchool/">
+                            <button value="@school.SchoolId" id="editPost" type="submit" class="btn btn-default btn-xs" name="schoolId">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form role="form" method="get" action="/Home/DeleteSchool/">
+                            <button value="@school.SchoolId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                        </form>
+                    </td>*@
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container">
+    <div class="buffer"></div>
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/huJ9vXPJaqA" frameborder="0" ></iframe>
+        </div>
+        <div class="col-md-4 column">
+            <h3>News</h3>
+            @*<ul>
+                @foreach (var a in Model.PagedArticles)
+                {
+                  <li>
+                   <a href="@a.Url" target="_blank">@a.Heading</a>
+                  </li>
+                }
+                @Html.PagedListPager(Model.PagedArticles, page => Url.Action("Index", new { page }))
+            </ul>*@
+            <div id="newsfeed"></div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="buffer"></div>
+        <div class="col-md-4 column">
+            <a href="@Url.Action("Schools", "Home")"><h4>Find a School</h4></a>
+            <a href="@Url.Action("Schools", "Home")"><img src="~/Content/Find%20a%20School.jpg" height="200" width="200" /></a>
+</div>
+        <div class="col-md-4 column">
+            <a href="@Url.Action("Articles", "Home")"><h4>Articles</h4></a>
+            <a href="@Url.Action("Articles", "Home")"><img src="~/Content/jiuJitsuMagazineDay.png" height="200" width="200" /></a>
+</div>
+        <div class="col-md-4 column">
+            <a href="@Url.Action("Events", "Home")"><h4>Events</h4></a>
+            <a href="@Url.Action("Events", "Home")"><img src="~/Content/Events.jpg" height="200" width="200" id="eventpic" /></a>
+</div>
+    </div>
+</div>

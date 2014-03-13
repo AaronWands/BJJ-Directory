@@ -1,0 +1,53 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "Articles";
+}
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <h3>
+                Articles
+            </h3>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            
+        </div>
+        <div class="col-md-4 column">
+            @*<form action="/Home/CreateArticle">
+                    <button type="submit" class="btn btn-default btn-xs">Add</button>
+                </form>*@
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <tr></tr>
+                @foreach (var newarticle in Model.PagedArticles)
+                {
+                    <tr>
+                        <td><a href="@newarticle.Url" target="_blank">@newarticle.Heading</a></td>
+                        
+                        @*<td>
+                                <form role="form" method="get" action="/Home/EditArticle/">
+                                    <button value="@newarticle.ArticleId" id="editPost" type="submit" class="btn btn-default btn-xs" name="articleId">Edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form role="form" method="get" action="/Home/DeleteEvent/">
+                                    <button value="@newevent.EventId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                                </form>
+                            </td>*@
+                    </tr>
+                }
+            </table>
+            @Html.PagedListPager(Model.PagedArticles, spage => Url.Action("Articles", new { spage }))
+        </div>
+    </div>

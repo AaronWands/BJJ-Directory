@@ -1,0 +1,128 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="buffer"></div>
+
+<div class="row clearfix">
+    <div class="col-md-8 column">
+        <h3>Schools</h3>
+    </div>
+    <div class="col-md-4 column">
+        <form action="/Home/CreateSchool">
+                <button type="submit" class="btn btn-default btn-xs">Add</button>
+            </form>
+    </div>
+</div>
+<table class="table">
+    <tr></tr>
+    @foreach (var school in Model.PagedSchools)
+    {
+        <tr>
+            <td>@school.SchoolName</td>
+            <td>
+                <ul>
+                    <li>@school.Address1</li>
+                    <li>@school.Address2</li>
+                    <li>@school.City, @school.State, @school.Zip</li>
+                    <li><a href="@school.Website" target="_blank">@school.Website</a></li>
+                </ul>
+            </td>
+            <td>
+                <form role="form" method="get" action="/Home/EditSchool/">
+                    <button value="@school.SchoolId" id="editPost" type="submit" class="btn btn-default btn-xs" name="schoolId">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form role="form" method="get" action="/Home/DeleteSchool/">
+                    <button value="@school.SchoolId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                </form>
+            </td>
+        </tr>
+        //<tr class="space"></tr>
+    }
+</table>
+@Html.PagedListPager(Model.PagedSchools, spage => Url.Action("Admin", new { spage }))
+
+
+
+
+<div class="row clearfix">
+    <div class="col-md-8 column">
+        <h3>Events</h3>
+    </div>
+    <div class="col-md-4 column">
+        <form action="/Home/CreateEvent">
+            <button type="submit" class="btn btn-default btn-xs">Add</button>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <tr></tr>
+    @foreach (var newevent in Model.PagedEvents)
+    {
+        <tr>
+            <td>@newevent.EventName</td>
+            <td>
+                <ul>
+                    <li>@newevent.EventName</li>
+                    <li>@newevent.EventDescription</li>
+                    <li>@newevent.StartDate</li>
+                    <li>@newevent.Active</li>
+                </ul>
+            </td>
+            <td>
+                <form role="form" method="get" action="/Home/EditEvent/">
+                    <button value="@newevent.EventId" id="editPost" type="submit" class="btn btn-default btn-xs" name="eventId">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form role="form" method="get" action="/Home/DeleteEvent/">
+                    <button value="@newevent.EventId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model.PagedEvents, epage => Url.Action("Admin", new { epage }))
+
+<div class="row clearfix">
+    <div class="col-md-8 column">
+        <h3>Articles</h3>
+    </div>
+    <div class="col-md-4 column">
+        <form action="/Home/CreateArticle">
+                <button type="submit" class="btn btn-default btn-xs">Add</button>
+            </form>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <table class="table">
+            <tr></tr>
+            @foreach (var newarticle in Model.PagedArticles)
+            {
+                <tr>
+                    <td><a href="@newarticle.Url" target="_blank">@newarticle.Heading</a></td>
+
+                    <td>
+                            <form role="form" method="get" action="/Home/EditArticle/">
+                                <button value="@newarticle.ArticleId" id="editPost" type="submit" class="btn btn-default btn-xs" name="articleId">Edit</button>
+                            </form>
+                        </td>   
+                    <td>
+                        <form role="form" method="get" action="/Home/DeleteArticle/">
+                            <button value="@newarticle.ArticleId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                        </form>
+                    </td>               
+                </tr>
+            }
+        </table>
+        @Html.PagedListPager(Model.PagedArticles, apage => Url.Action("Admin", new { apage }))
+    </div>
+</div>

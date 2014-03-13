@@ -1,0 +1,19 @@
+﻿@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "CreateSchool";
+}
+
+<h2>Create School</h2>
+
+<form method="post" action="/Home/CreateSchool">
+    <input type="text" name="SchoolName" placeholder="Enter School Name" /><br />
+    <input type="text" name="Address1" placeholder="Enter School Address" /><br />
+    <input type="text" name="Address2" placeholder="Enter School Address" /><br />
+    <input type="text" name="City" placeholder="Enter School City" /><br />
+    <input type="text" name="State" placeholder="Enter School State" /><br />
+    <input type="text" name="Zip" placeholder="Enter School Zip" /><br />
+    <input type="text" name="Website" placeholder="Enter School Website" /><br />
+
+    <button value="1" type="submit" class="btn btn-default btn-xs" name="UserId">Submit</button>
+    
+</form>

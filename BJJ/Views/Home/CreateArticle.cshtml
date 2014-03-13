@@ -1,0 +1,14 @@
+﻿@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "CreateArticle";
+}
+
+<h2>CreateArticle</h2>
+
+<form method="post" action="/Home/CreateArticle">
+    <input type="text" name="Heading" placeholder="Enter Heading" /><br />
+    <input type="text" name="Url" placeholder="Enter Url" /><br />
+
+    <button value="1" type="submit" class="btn btn-default btn-xs" name="UserId">Submit</button>
+
+</form>

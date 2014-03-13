@@ -1,0 +1,12 @@
+﻿
+<h2>Edit Event</h2>
+
+<form method="post">
+    <input type="text" name="EventName" value="@Model.Event.EventName" /><br />
+    <input type="text" name="EventDescription" value="@Model.Event.EventDescription" /><br />
+    <input type="text" name="StartDate" value="@Model.Event.StartDate" /><br />
+    <input style="visibility:hidden" type="number" name="eventId" value="@Model.Event.EventId" />
+    
+
+    <button type="submit">Submit</button>
+</form>

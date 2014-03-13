@@ -1,0 +1,12 @@
+﻿
+<h2>EditArticle</h2>
+
+<form method="post" action="/Home/EditArticle">
+    <input type="text" name="Heading" value="@Model.Article.Heading" /><br />
+    <input type="text" name="Url" value="@Model.Article.Url" /><br />
+    <input style="visibility:hidden" type="number" name="ArticleId" value="@Model.Article.ArticleId" />
+
+
+    <button value="1" type="submit" class="btn btn-default btn-xs" name="UserId">Edit</button>
+
+</form>

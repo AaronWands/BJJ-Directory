@@ -1,0 +1,60 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model BJJ.Models.ViewModel
+@{
+    ViewBag.Title = "Events";
+}
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <h3>
+                Upcoming Events
+            </h3>
+        </div>
+        
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+        </div>
+        <div class="col-md-4 column">
+            @*<form action="/Home/CreateEvent">
+                <button type="submit" class="btn btn-default btn-xs">Add</button>
+            </form>*@
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table">
+                <tr></tr>
+                @foreach (var newevent in Model.PagedEvents)
+                {
+                    <tr>
+                        <td>@newevent.EventName</td>
+                        <td>
+                            <ul>
+                                <li>@newevent.EventName</li>
+                                <li>@newevent.EventDescription</li>
+                                <li>@newevent.StartDate</li>
+                                <li>@newevent.Active</li>
+                            </ul>
+                        </td>
+                        @*<td>
+                            <form role="form" method="get" action="/Home/EditEvent/">
+                                <button value="@newevent.EventId" id="editPost" type="submit" class="btn btn-default btn-xs" name="eventId">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form role="form" method="get" action="/Home/DeleteEvent/">
+                                <button value="@newevent.EventId" id="deletePost" type="submit" class="btn btn-default btn-xs" name="deleteId">Delete</button>
+                            </form>
+                        </td>*@
+                    </tr>
+                }
+            </table>
+            @Html.PagedListPager(Model.PagedEvents, epage => Url.Action("Events", new { epage }))
+        </div>
+    </div>
+
